@@ -3,7 +3,8 @@ import random
 #return a random port
 def randomize_port():
 	return random.randint(0,65535)
-
+def random_seq():
+	return random.randint(1000,9000)
 def spoof_ipv4():
 	ipv4 = list()
 	#initial 3 bits
