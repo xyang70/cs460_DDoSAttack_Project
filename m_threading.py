@@ -1,21 +1,23 @@
 import multiprocessing as mp
-import threading 
-
+import threading
+import UDP
+import TCP_SYN_direct
+from __future__ import print_function
 
 #print(mp.cpu_count())
 
-def start_attack_in_multithreading(ip):
+def start_attack_in_multithreading(method,ip):
 	num_cpu = mp.cpu_count()
 	#print(num_cpu)
 	for _ in range(num_cpu):
-		t = threading.Thread(target=attack,args=(ip,))
-		t.daemon = True
+		t = threading.Thread(target=attack,args=(method,ip,))
+		#t.daemon = True
 		#print("starting?")
 		t.start()
 
 
-
-def attack(ip):
+#for worker to attack
+def attack(method,ip):
 	#print("called")
 	#substitude with actual attack
 	print("Attacking on %s on %s"%(ip,threading.current_thread().name))
