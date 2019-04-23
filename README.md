@@ -11,16 +11,18 @@
 
 #### Software
 * Python 3.7/ Python 2.7 (scapy library has issues while running on different platforms)
-* Scapy(Do NOT use pip to install this library, use [this method instead](https://scapy.readthedocs.io/en/latest/installation.html#current-development-version))
+* Scapy(Do NOT use pip to install this library, use this [method](https://scapy.readthedocs.io/en/latest/installation.html#current-development-version) instead) 
 
 ## TCP SYN Flood
 
 ## Slowloris
-slowloris is a DoS attack invented by Robert "RSnake" Hansen[1](https://en.wikipedia.org/wiki/Slowloris_(computer_security)). This attack technique allows a single computer to take down a server with very little bandwidth but can perform destructive impacts. A brief workflow is described as follow:
+[Slowloris](https://en.wikipedia.org/wiki/Slowloris_(computer_security)) is a DoS attack invented by Robert "RSnake" Hansen. This attack technique allows a single computer to take down a server with very little bandwidth but can perform destructive impacts. A brief workflow is described as follow:
 
 1. Create around 1000 sockets connecting to the target.
 2. For each socket, send a HTTP GET(without the ending character) to the target.
 3. In a while loop, for each socket, send a http header"X-a ...". Check if there is any sockets timed out by the server, if so, recreate the sockets and establish the connectioin. At the end, sleep the process for 10 - 20 seconds.
+
+#### Performing Stress Testing
 
 #### Experiments and Result
 * **Sender**<br>
@@ -29,23 +31,30 @@ A picture when the Slowloris program is running:
 
 Wireshark Capturing on sender's computer:
 ![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/Screen%20Shot%202019-04-22%20at%207.46.19%20PM.png?raw=true)
+* **Target**<br>
 
-## Perform Stress Testing
+* **Normal Visitors**<br>
 
-#### TCP SYN Flood
 
-#### Slowloris
 
 ## Protecting Your Computer From these Attacks
 
 #### TCP SYN Flood
 
 #### Slowloris
-
-
+* **Platform Dependency**<br>
+  Slowloris is designed for apache server, using different servers will greatly reduce the chance of being Slowloris DoS.
+* **Increase Server Avalability[2]**<br>
+  Increase the number of connections that are allowed from the server. But one computer can use 65,535 ports to connect to a server, hence, this fix is not really pratical.
+* **Limit the Number of Connections by IP Address**<br>
+  Limit the number of connections for an IP Address can prevent DoS, but not in Distributed DoS.
+* **Restrict Connection Time**<br>
+  Restrict the connection time can kill many unnecessary connections.
+* **Install Protecting Software**<br>
+  There are useful tools such as libapache2-mod-qos and mod-security can help preventing Slowloris.
 
 ## Conclusion
-
+Hire cloud base protection
 
 
 
@@ -74,4 +83,4 @@ Wireshark Capturing on sender's computer:
 
 
 ## Reference
-
+https://www.cloudflare.com/learning/ddos/ddos-attack-tools/slowloris/
