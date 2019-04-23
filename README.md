@@ -11,7 +11,10 @@ slowloris is a DoS attack invented by Robert "RSnake" Hansen[1](https://en.wikip
 2. For each socket, send a HTTP GET(without the ending character) to the target.
 3. In a while loop, for each socket, send a http header"X-a ...". Check if there is any sockets timed out by the server, if so, recreate the sockets and establish the connectioin. At the end, sleep the process for 10 - 20 seconds.
 
-#### Experimental Result
+#### Experiments and Result
+* **Sender**
+A picture when the Slowloris program is running:
+![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/Screen%20Shot%202019-04-22%20at%207.02.13%20PM.png?raw=true)
 
 ## Protecting Your Computer From theses Attacks
 
