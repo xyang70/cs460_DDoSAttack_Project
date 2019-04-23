@@ -3,15 +3,15 @@
 ## Environment Setup
 
 #### Hardware
-* Mac Early 2015 Running Mac OS Mojave 10.14.4
+* Macbook Pro Early 2015 Running on Mac OS Mojave 10.14.4
 * 2 x Raspberry Pi Model 3 B+
-* Laptop Running Ubuntu 16.04
+* Laptop Running on Ubuntu 16.04
 * TP-Link 5 Port Gigabit Ethernet Network Switch(TL-SG105)
 * Ethernet Cat-6 cables
 
 #### Software
 * Python 3.7/ Python 2.7 (scapy library has issues while running on different platforms)
-* Scapy
+* Scapy(Do NOT use pip to install this library, use [this method instead](https://scapy.readthedocs.io/en/latest/installation.html#current-development-version))
 
 ## TCP SYN Flood
 
@@ -29,6 +29,12 @@ A picture when the Slowloris program is running:
 
 Wireshark Capturing on sender's computer:
 ![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/Screen%20Shot%202019-04-22%20at%207.46.19%20PM.png?raw=true)
+
+## Perform Stress Testing
+
+#### TCP SYN Flood
+
+#### Slowloris
 
 ## Protecting Your Computer From these Attacks
 
