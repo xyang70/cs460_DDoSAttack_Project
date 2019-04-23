@@ -12,11 +12,14 @@ slowloris is a DoS attack invented by Robert "RSnake" Hansen[1](https://en.wikip
 3. In a while loop, for each socket, send a http header"X-a ...". Check if there is any sockets timed out by the server, if so, recreate the sockets and establish the connectioin. At the end, sleep the process for 10 - 20 seconds.
 
 #### Experiments and Result
-* **Sender**
+* **Sender**<br>
 A picture when the Slowloris program is running:
 ![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/Screen%20Shot%202019-04-22%20at%207.02.13%20PM.png?raw=true)
 
-## Protecting Your Computer From theses Attacks
+Wireshark Capturing on sender's computer:
+![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/Screen%20Shot%202019-04-22%20at%207.46.19%20PM.png?raw=true)
+
+## Protecting Your Computer From these Attacks
 
 #### TCP SYN Flood
 
