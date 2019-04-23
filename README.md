@@ -2,6 +2,17 @@
 
 ## Environment Setup
 
+#### Hardware
+* Mac Early 2015 Running Mac OS Mojave 10.14.4
+* 2 x Raspberry Pi Model 3 B+
+* Laptop Running Ubuntu 16.04
+* TP-Link 5 Port Gigabit Ethernet Network Switch(TL-SG105)
+* Ethernet Cat-6 cables
+
+#### Software
+* Python 3.7/ Python 2.7 (scapy library has issues while running on different platforms)
+* Scapy
+
 ## TCP SYN Flood
 
 ## Slowloris
