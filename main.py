@@ -9,7 +9,7 @@ def main():
 	print("\n\nWelcome to DDoS Attack. This tool is developed by Stanley Yang from the University of Illinois at Urbana-Champaign."
 	 "This tool is for educational purposes, abusively DDoSing publicly is a federal crime.")
 	ip = input("\n Please enter the IP you want to attack:\n")
-	port = input("\n Please enter the port you want to attack:\n")
+	port = int(input("\n Please enter the port you want to attack:\n"))
 	method = int(input("\nYou are taking down {}, please select the attack method:"
 		"\n 1.Slowloris"
 		"\n 2.TCP SYN Flood"
@@ -22,7 +22,7 @@ def main():
 		"\n 2.Hell Nawwwwwwwww!"))
 
 	#connect to hosts
-	if ssh_option == 1:
+	if ssh_option == 2:
 		#default slowloris
 		#default enable multithreading
 		mode = 'slowloris'
