@@ -15,7 +15,7 @@
 #### Program Flowchart
 ![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/Program%20flowchart.png?raw=true)
 ## TCP SYN Flood
-
+[TCP SYN Flood](https://www.imperva.com/learn/application-security/syn-flood/?utm_campaign=Incapsula-moved) is a DoS attack by exploiting the three-way handshakes between the client and the server.
 ## Slowloris
 [Slowloris](https://en.wikipedia.org/wiki/Slowloris_(computer_security)) is a DoS attack invented by Robert "RSnake" Hansen. This attack technique allows a single computer to take down a server with very little bandwidth but can perform destructive impacts. A brief workflow is described as follow:
 
@@ -27,10 +27,10 @@
 
 #### Experiments and Result
 * **Sender**<br>
-A picture when the Slowloris program is running:
+  A picture when the Slowloris program is running:
 ![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/Screen%20Shot%202019-04-22%20at%207.02.13%20PM.png?raw=true)
 
-Wireshark Capturing on sender's computer:
+  Wireshark Capturing on sender's computer:
 ![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/Screen%20Shot%202019-04-22%20at%207.46.19%20PM.png?raw=true)
 * **Target**<br>
 The target does have significant CPU usage changes, insteads, it receives many connection request from the sender.<br>
