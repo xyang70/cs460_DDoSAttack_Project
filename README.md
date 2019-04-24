@@ -19,7 +19,7 @@ One of the Raspberry Pi is used as a victim with apache as the experimental serv
 Left side is the workflow for the main sender, right side is the workflow for the bots.
 ![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/Program%20flowchart.png?raw=true)
 ## TCP SYN Flood
-[TCP SYN Flood](https://www.imperva.com/learn/application-security/syn-flood/?utm_campaign=Incapsula-moved) is a DoS attack by exploiting the three-way handshakes between the client and the server. In short, TCP SYN Flood works as the following:
+[TCP SYN Flood](https://www.imperva.com/learn/application-security/syn-flood/?utm_campaign=Incapsula-moved) is a DoS attack by exploiting the three-way handshakes between the client and the server. In details, TCP SYN Flood works as the following:
 1. Sender sends a "SYN" request to the target.
 2. Target responds with a "SYN-ACK" packet back to the sender, and waiting for an "ACK" packet from the sender.
 3. Sender disregard the "SYN-ACK" packet and do something else.
