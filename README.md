@@ -33,9 +33,15 @@ A picture when the Slowloris program is running:
 Wireshark Capturing on sender's computer:
 ![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/Screen%20Shot%202019-04-22%20at%207.46.19%20PM.png?raw=true)
 * **Target**<br>
-
+The target does have significant CPU usage changes, insteads, it receives many connection request from the sender.<br>
+![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/IMG_4820.jpg?raw=true)
 * **Normal Visitors**<br>
-
+  Before slowloris, everything works fine:
+  ![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/IMG_6144.jpg?raw=true)
+  In slowloris, connection is slowing down:
+  ![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/IMG_8434.jpg?raw=true)
+  After slowloris used all resources:
+  ![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/IMG_0950.jpg?raw=true)
 
 
 ## Protecting Your Computer From these Attacks
