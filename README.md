@@ -12,7 +12,8 @@
 #### Software
 * Python 3.7/ Python 2.7 (scapy library has issues while running on different platforms)
 * Scapy(Do NOT use pip to install this library, use this [method](https://scapy.readthedocs.io/en/latest/installation.html#current-development-version) instead) 
-
+#### Program Flowchart
+![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/Program%20flowchart.png?raw=true)
 ## TCP SYN Flood
 
 ## Slowloris
