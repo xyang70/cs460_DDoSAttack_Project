@@ -1,4 +1,4 @@
-# UIUC CS460 DDoS Attack Project
+# UIUC CS460 DDoS Attack Final Project
 >Note:<br>
 >This experiment was performed on a local network,
 >there was no harm to other users on the Internet while this experient was conducting.
@@ -19,6 +19,17 @@ One of the Raspberry Pi is used as a victim with apache as the experimental serv
 #### Program Flowchart<br>
 Left side is the workflow for the main sender, right side is the workflow for the bots.
 ![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/Program%20flowchart.png?raw=true)
+#### Performing Stress Testing
+To perform stress testing program, run the following command:<br>
+* Intel/AMD Platform:
+```
+$sudo python3 main.py
+```
+* Arm Platform:
+```
+$sudo python2 main.py
+```
+Follow the prompt and enter the target IP address, port, and the option to enable muli-threading. The program should run momentarily.
 ## TCP SYN Flood
 [TCP SYN Flood](https://www.imperva.com/learn/application-security/syn-flood/?utm_campaign=Incapsula-moved) is a DoS attack by exploiting the three-way handshakes between the client and the server. In details, TCP SYN Flood works as the following:
 1. Sender sends a "SYN" request to the target.
@@ -33,6 +44,8 @@ Left side is the workflow for the main sender, right side is the workflow for th
 >
 Due to TP-Link 5 Port Network Switch(TL-SG105) is a unmanged switch, hence, there are packets getting misrouted to other senders, leading to a decrease in performance, I decided to change it to TP-Link TL-WDR7300,a wireless router, with 3 senders using ethenet, and the target using wireless network. A physical connection is as follow:
 ![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/IMG_2802.jpg?raw=true)
+Before the stress test begins, all users could visit the website as follow:
+![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/Screen%20Shot%202019-04-26%20at%2012.11.09%20AM.png?raw=true)
 * **Sender**<br>
   Sender will not output anything to the console inorder to acheive the best performance.
 * **Target(192.168.0.101)**<br>
@@ -48,6 +61,7 @@ Due to TP-Link 5 Port Network Switch(TL-SG105) is a unmanged switch, hence, ther
   * From Ipad 2018
   ![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/IMG_0022.PNG?raw=true)
   * From Windows 10
+  ![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/TCP.PNG?raw=true)
   
 ## Slowloris
 [Slowloris](https://en.wikipedia.org/wiki/Slowloris_(computer_security)) is a DoS attack invented by Robert "RSnake" Hansen. This attack technique allows a single computer to take down a server with very little bandwidth but can perform destructive impacts. A brief workflow is described as follow:
@@ -56,7 +70,6 @@ Due to TP-Link 5 Port Network Switch(TL-SG105) is a unmanged switch, hence, ther
 2. For each socket, send a HTTP GET(without the ending character) to the target.
 3. In a while loop, for each socket, send a http header"X-a ...". Check if there is any sockets timed out by the server, if so, recreate the sockets and establish the connectioin. At the end, sleep the process for 10 - 20 seconds.
 
-#### Performing Stress Testing
 
 #### Experiments and Result
 * **Sender**<br>
@@ -88,7 +101,7 @@ The target does have significant CPU usage changes, insteads, it receives many c
 #### Slowloris
 * **Platform Dependency**<br>
   Slowloris is designed for apache server, using different servers will greatly reduce the chance of being Slowloris DoS.
-* **Increase Server Avalability[2]**<br>
+* **[Increase Server Avalability](https://www.cloudflare.com/learning/ddos/ddos-attack-tools/slowloris/)**<br>
   Increase the number of connections that are allowed from the server. But one computer can use 65,535 ports to connect to a server, hence, this fix is not really pratical.
 * **Limit the Number of Connections by IP Address**<br>
   Limit the number of connections for an IP Address can prevent DoS, but not in Distributed DoS.
@@ -98,33 +111,5 @@ The target does have significant CPU usage changes, insteads, it receives many c
   There are useful tools such as libapache2-mod-qos and mod-security can help preventing Slowloris.
 
 ## Conclusion
-Hire cloud base protection
+DDoS attack is still an [unsolvable problem](https://www.zhihu.com/question/26741164) in network security after many years. What the protectors can do are to prevent the attacks and reduce the damage. Many sites have hired professional network security service to prevent DDoS. But in social engineering, how to not to be an attacker is the root of the cause.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Reference
-https://www.cloudflare.com/learning/ddos/ddos-attack-tools/slowloris/
