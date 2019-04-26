@@ -10,6 +10,7 @@
 * Laptop Running on Ubuntu 16.04
 * TP-Link 5 Port Gigabit Ethernet Network Switch(TL-SG105)
 * Ethernet Cat-6 cables<br>
+* [TP-Link TL-WDR7300](https://www.tp-link.com.cn/product_1039.html)<br>
 
 One of the Raspberry Pi is used as a victim with apache as the experimental server; the other computers are either used as senders or acted as a normal user.
 #### Software
@@ -27,7 +28,27 @@ Left side is the workflow for the main sender, right side is the workflow for th
 5. Many bot computers repeat the same step 1 to 4 every millisecond, making the target out of resources to handle the real requests from other human users. Hence, making human users unable to connect to the target.
 
 #### Experiments and Result
-
+>Note:<br>
+>There was issue running the ssh feature(library pexpect will raise timeout exception when the bots are running script without >response), I have disabled such features. Instead, I put all senders under the same network and manually ran the program.<br>
+>
+Due to TP-Link 5 Port Network Switch(TL-SG105) is a unmanged switch, hence, there are packets getting misrouted to other senders, leading to a decrease in performance, I decided to change it to TP-Link TL-WDR7300,a wireless router, with 3 senders using ethenet, and the target using wireless network. A physical connection is as follow:
+![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/IMG_2802.jpg?raw=true)
+* **Sender**<br>
+  Sender will not output anything to the console inorder to acheive the best performance.
+* **Target(192.168.0.101)**<br>
+  I used tcptrack to track the internet connections, a command is follow:
+  ```
+  $sudo tcptrack -i wlan0  #wlan0 means the wireless interface of Raspberry Pi
+  ```
+  After all 3 senders had been running for about 30 minutes, the target has received 23,189 connections with false source IP and port(IP address spoofing, yes, I have randomly generated IPs and ports). The serivce was down, and no other visitors could visit the website 192.168.0.101 .<br>
+  ![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/IMG_5052.jpg?raw=true)
+  After I had shut down all senders, the target was stabled with 21,665 connections. But no other visitors(except the senders) could visit the website.
+* **Normal Visitors**
+  At 30 minutes mark, other devices can not normally visit the apache default welcome page. Instead, they see these:
+  * From Ipad 2018
+  ![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/IMG_0022.PNG?raw=true)
+  * From Windows 10
+  
 ## Slowloris
 [Slowloris](https://en.wikipedia.org/wiki/Slowloris_(computer_security)) is a DoS attack invented by Robert "RSnake" Hansen. This attack technique allows a single computer to take down a server with very little bandwidth but can perform destructive impacts. A brief workflow is described as follow:
 
