@@ -5,9 +5,9 @@
 ## Environment Setup
 
 #### Hardware
-* Macbook Pro Early 2015 Running on Mac OS Mojave 10.14.4
-* 2 x Raspberry Pi Model 3 B+ Running on Debian Stretch with Raspberry Pi Desktop
-* Laptop Running on Ubuntu 16.04
+* Macbook Pro Early 2015 Running Mac OS Mojave 10.14.4
+* 2 x Raspberry Pi Model 3 B+ Running Debian Stretch with Raspberry Pi Desktop
+* Laptop Running Ubuntu 16.04
 * TP-Link 5 Port Gigabit Ethernet Network Switch(TL-SG105)
 * Ethernet Cat-6 cables<br>
 * [TP-Link TL-WDR7300](https://www.tp-link.com.cn/product_1039.html)<br>
