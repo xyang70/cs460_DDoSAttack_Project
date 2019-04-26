@@ -57,7 +57,7 @@ Before the stress test begins, all users could visit the website as follow:
   ![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/IMG_5052.jpg?raw=true)
   After I had shut down all senders' programs, the target was stable with 21,665 connections. But no other visitors(except the senders) could visit the website.
 * **Normal Visitors**<br>
-  At 30 minutes mark, other devices can not normally visit the apache default welcome page. Instead, they see these:
+  At 30 minutes mark, other devices could not normally visit the apache default welcome page. Instead, they saw these:
   * From Ipad 2018
   ![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/IMG_0022.PNG?raw=true)
   * From Windows 10
@@ -82,9 +82,9 @@ Before the stress test begins, all users could visit the website as follow:
 The target does have significant CPU usage changes, insteads, it receives many connection request from the sender.<br>
 ![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/IMG_4820.jpg?raw=true)
 * **Normal Visitors**<br>
-  Before slowloris, everything works fine:
+  Before slowloris, everything worked fine:
   ![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/IMG_6144.jpg?raw=true)
-  In slowloris, connection is slowing down:
+  In slowloris, connection was slowing down:
   ![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/IMG_8434.jpg?raw=true)
   After slowloris used all resources:
   ![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/IMG_0950.jpg?raw=true)
