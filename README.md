@@ -73,13 +73,13 @@ Before the stress test begins, all users could visit the website as follow:
 
 #### Experiments and Result
 * **Sender**<br>
-  A picture when the Slowloris program is running:
+  A picture when the Slowloris program was running:
 ![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/Screen%20Shot%202019-04-22%20at%207.02.13%20PM.png?raw=true)
 
-  Wireshark Capture on sender's computer:
+  Wireshark Capture from the sender's computer:
 ![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/Screen%20Shot%202019-04-22%20at%207.46.19%20PM.png?raw=true)
 * **Target**<br>
-The target does have significant CPU usage changes, insteads, it receives many connection request from the sender.<br>
+The target did not have significant CPU usage changes, insteads, it received many connection request from the sender.<br>
 ![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/IMG_4820.jpg?raw=true)
 * **Normal Visitors**<br>
   Before slowloris, everything worked fine:
