@@ -14,24 +14,24 @@ def main():
 		"\n 1.Slowloris"
 		"\n 2.TCP SYN Flood"
 		"\n 3.UDP Flood\n".format(ip)))
-	ssh_option = int(input("\n DDoS or DoS?"
-		"\n 1.DoS"
-		"\n 2.DDoS\n"))
+	# ssh_option = int(input("\n DDoS or DoS?"
+	# 	"\n 1.DoS"
+	# 	"\n 2.DDoS\n"))
 	multi_threading = int(input("\n multi_threading?:"
 		"\n 1.Hell Yesssssssss!"
 		"\n 2.Hell Nawwwwwwwww!"))
 
 	#connect to hosts
-	if ssh_option == 2:
-		#default slowloris
-		#default enable multithreading
-		mode = 'slowloris'
-		enable_multithreading = 1
-		if method == 2:
-			mode = 'tcp'
-		if multi_threading != 1:
-			enable_multithreading = 0
-		ssh.process_ssh_and_start(ip,port,mode,enable_multithreading)
+	# if ssh_option == 2:
+	# 	#default slowloris
+	# 	#default enable multithreading
+	# 	mode = 'slowloris'
+	# 	enable_multithreading = 1
+	# 	if method == 2:
+	# 		mode = 'tcp'
+	# 	if multi_threading != 1:
+	# 		enable_multithreading = 0
+	# 	ssh.process_ssh_and_start(ip,port,mode,enable_multithreading)
 
 	### start local machine task
 	#slowloris
