@@ -42,7 +42,7 @@ Follow the prompt and enter the target IP address, port, and the option to enabl
 >Note:<br>
 >There was issue running the ssh feature(library pexpect will raise timeout exception when the bots are running script without >response), I have disabled such features. Instead, I put all senders under the same network and manually ran the program.<br>
 >
-Due to TP-Link 5 Port Network Switch(TL-SG105) is a unmanged switch, hence, there are packets getting misrouted to other senders, leading to a decrease in performance, I decided to change it to TP-Link TL-WDR7300,a wireless router, with 3 senders using ethenet, and the target using wireless network. A physical connection picture is shown as follow:
+Due to TP-Link 5 Port Network Switch(TL-SG105) is a unmanged switch, hence, there are packets getting misrouted to other senders, leading to a decrease in performance, I decided to change it to TP-Link TL-WDR7300,a wireless router, with 3 senders using ethenet, and the target using wireless network. A physical connection picture is shown below:
 ![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/IMG_2802.jpg?raw=true)
 Before the stress test begins, all users could visit the website as follow:
 ![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/Screen%20Shot%202019-04-26%20at%2012.11.09%20AM.png?raw=true)
