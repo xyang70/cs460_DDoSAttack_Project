@@ -12,8 +12,7 @@ def main():
 	port = int(input("\n Please enter the port you want to attack:\n"))
 	method = int(input("\nYou are taking down {}, please select the attack method:"
 		"\n 1.Slowloris"
-		"\n 2.TCP SYN Flood"
-		"\n 3.UDP Flood\n".format(ip)))
+		"\n 2.TCP SYN Flood\n".format(ip)))
 	# ssh_option = int(input("\n DDoS or DoS?"
 	# 	"\n 1.DoS"
 	# 	"\n 2.DDoS\n"))

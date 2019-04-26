@@ -19,7 +19,7 @@ One of the Raspberry Pi is used as a victim with apache as the experimental serv
 #### Program Flowchart<br>
 Left side is the workflow for the main sender, right side is the workflow for the bots.
 ![](https://github.com/xyang70/cs460_DDoSAttack_Project/blob/master/readme_img/Program%20flowchart.png?raw=true)
-#### Performing Stress Testing
+#### Perform Stress Testing
 To perform stress testing program, run the following command:<br>
 * Intel/AMD Platform:
 ```
