@@ -24,7 +24,7 @@ Left side is the workflow for the main sender, right side is the workflow for th
 2. Target responds with a "SYN-ACK" packet back to the sender, and waiting for an "ACK" packet from the sender.
 3. Sender disregard the "SYN-ACK" packet and do something else.
 4. Target is still waiting for the "ACK" packet until ttl(time to live) is reached.
-5. Many bot computers repeat the same step 1 to 4 every millisecond, making the target out of resources to handle the real request from other human users. Hence, making human users unable to connect to the target.
+5. Many bot computers repeat the same step 1 to 4 every millisecond, making the target out of resources to handle the real requests from other human users. Hence, making human users unable to connect to the target.
 
 #### Experiments and Result
 
@@ -63,6 +63,7 @@ The target does have significant CPU usage changes, insteads, it receives many c
   Using SYN Cookies can avoid SYN flood because the server will send "SYN-ACK" back to the client and discard the "SYN" entry from the SYN queue. If the client respond back with an "ACK", then the server will reconstruct SYN queue and establish connection.
 * **Decrease ttl on the Server**<br>
   Since the main vulnerability of the server is out of resources, hence, a server can be configured to have less time to live(ttl) for each connection, making sure the connection is disconnected at a given time to release resources.
+* **
 #### Slowloris
 * **Platform Dependency**<br>
   Slowloris is designed for apache server, using different servers will greatly reduce the chance of being Slowloris DoS.
